@@ -4,19 +4,19 @@
 import java.util.Scanner;
 
 public class AirPurifier{
-    String model;
-    int SerialNum;
-    int RoomTemp;
-    int PMLevel;
-    boolean power = false;
-    void turnOn(){power = true;}
-    void turnOff(){power = false;}
-    int RoomTempNow(){return RoomTemp;}
-    int PMLvlNow(){return PMLevel;}
-    static int RegModCount;
-    static int ProModCount;
+    String model;//มีไว้เก็บรุ่น
+    int SerialNum;//มีไว้เก็บรหัสเครื่อง
+    int RoomTemp;//มีไว้เก็บอุณหภูมิที่เครื่องวัดได้
+    int PMLevel;//มีไว้เก็บค่าฝุ่นที่เครื่องวัดได้
+    boolean power = false;//สถานะของเครื่อง
+    void turnOn(){power = true;}//เปิดเครื่อง
+    void turnOff(){power = false;}//ปิดเครื่อง
+    int RoomTempNow(){return RoomTemp;}//เรียกดูอุณหภูมิ
+    int PMLvlNow(){return PMLevel;}//เรียกดูระดับฝุ่น
+    static int RegModCount;//เก็บจำนวนเครื่องรุ่น Regular
+    static int ProModCount;//เก็บจำนวนเครื่องรุ่น Pro
 
-    AirPurifier(String model){
+    AirPurifier(String model){//Constructor
         if(model.equals("Regular")){
             RegModCount++;
             this.model = model;
@@ -29,7 +29,7 @@ public class AirPurifier{
         }else{System.out.println("Invalid Model");}
     }
 
-    static void MostPopularModel(){
+    static void MostPopularModel(){//class method ที่เรียกใช้เพื่อดูว่ารุ่นไหนมีมากกว่ากัน
         if(RegModCount>ProModCount){
             System.out.println("Regular Model is the most popular model");
         }else if(RegModCount<ProModCount){
@@ -37,7 +37,7 @@ public class AirPurifier{
         }else{System.out.println("Both Regular and Pro model are most popular model");}
     };
 
-    public static void main(String[] args){
+    public static void main(String[] args){//main จ้า
         Scanner GetModel = new Scanner(System.in);
         System.out.println("Please enter model name:");
         String model = GetModel.nextLine();
@@ -56,7 +56,5 @@ public class AirPurifier{
         // }else if(TXT.equals("N")){
         //     f.power = false;
         // }
-        // if(f.power == false){System.out.println("AirPurifier is currently off");}
-        // else{System.out.println("AirPurifier is currently on");};
     }
 }
